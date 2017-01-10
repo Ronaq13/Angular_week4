@@ -7,12 +7,17 @@ angular.module('confusionApp')
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;
-
+    $scope.showMenu = false;
+    $scope.message = "Loading...";
     $scope.dishes = {};
 
     menuFactory.getDishes().then(
         function(response) {
             $scope.dishes = response.data;
+            $scope.showMenu = true;
+        },
+        function(response) {
+            $scope.message = "Error: " + response.status + " " + response.statusText;
         }
     );
 
@@ -73,9 +78,14 @@ angular.module('confusionApp')
 .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
 
     $scope.dish = {};
+    $scope.showDish = false;
+    $scope.message = "Loading...";
     menuFactory.getDish(parseInt($stateParams.id, 10)).then(
         function(response) {
             $scope.dish = response.data;
+        },
+        function(response) {
+            $scope.message = "Error: " + response.status + " " + response.statusText;
         }
     );
 
@@ -101,9 +111,14 @@ angular.module('confusionApp')
 // implement the IndexController and About Controller here
 .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
         $scope.dish = {};
+        $scope.showDish = false;
+        $scope.message = "Loading...";
         menuFactory.getDish(0).then(
             function(response) {
                 $scope.dish = response.data;
+            },
+            function(response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
             }
         );
         $scope.promo = menuFactory.getPromotion(0);
