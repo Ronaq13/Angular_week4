@@ -62,9 +62,9 @@
                 <!--      <div class="col-xs-12" ng-show="!commentForm.author.$error.required && !commentForm.author.$pristine && !commentForm.comment.$error.required && !commentForm.comment.$pristine"> -->
                 <div class="col-xs-12" ng-show="commentForm.author.$dirty && commentForm.comment.$dirty">
                     <blockquote>
-                        <p>{{commentFeedback.rating}} rating </p>
-                        <p>{{commentFeedback.comment}}</p>
-                        <footer>{{commentFeedback.author}}</footer>
+                        <p>{{mycomment.rating}} rating </p>
+                        <p>{{mycomment.comment}}</p>
+                        <footer>{{mycomment.author}}</footer>
                     </blockquote>
                 </div>
 
@@ -76,7 +76,7 @@
                     <div class="form-group" ng-class="{'has-error': commentForm.author.$error.required && !commentForm.author.$pristine}">
                         <label for="author" class="col-sm-2 control-label">Your Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Your Name" ng-model="commentFeedback.author" required>
+                            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Your Name" ng-model="mycomment.author" required>
                             <!--          <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Your First name is required.</span>  -->
                             <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Your Name is required.</span>
                         </div>
@@ -88,19 +88,19 @@
 
                         <div class="col-sm-10">
                             <label class="radio-inline">
-                            <input type="radio" name="star1" id="star1"  ng-model="commentFeedback.rating" ng-value="1"> 1
+                            <input type="radio" name="star1" id="star1"  ng-model="mycomment.rating" ng-value="1"> 1
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="star2" id="star2"  ng-model="commentFeedback.rating" ng-value="2"> 2
+                            <input type="radio" name="star2" id="star2"  ng-model="mycomment.rating" ng-value="2"> 2
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="star3" id="star3"  ng-model="commentFeedback.rating" ng-value="3"> 3
+                            <input type="radio" name="star3" id="star3"  ng-model="mycomment.rating" ng-value="3"> 3
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="star4" id="star4"  ng-model="commentFeedback.rating" ng-value="4"> 4
+                            <input type="radio" name="star4" id="star4"  ng-model="mycomment.rating" ng-value="4"> 4
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="star5" id="star5"  ng-model="commentFeedback.rating" ng-value="5" checked> 5
+                            <input type="radio" name="star5" id="star5"  ng-model="mycomment.rating" ng-value="5" checked> 5
                             </label>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                     <div class="form-group" ng-class="{ 'has-error' : commentForm.comment.$error.required && !commentForm.comment.$pristine }">
                         <label for="comment" class="col-sm-2 control-label">Your Feedback</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="comment" name="comment" rows="12" ng-model="commentFeedback.comment" required></textarea>
+                            <textarea class="form-control" id="comment" name="comment" rows="12" ng-model="mycomment.comment" required></textarea>
                             <!-- name and id should be "comment" -->
                             <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Your comment is required</span>
                         </div>
